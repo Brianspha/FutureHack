@@ -1,33 +1,4 @@
-/*
-   
-    Template Name : WebRes - Personal Resume Template
-    Author : UiPasta Team
-    Website : http://www.uipasta.com/
-    Support : http://www.uipasta.com/support/
-	
-	
-*/
 
-
-
-/*
-   
-   Table Of Content
-   
-   1. Preloader
-   2. Smooth Scroll
-   3. Scroll Naviagation Background Change with Sticky Navigation
-   4. Mobile Navigation Hide or Collapse on Click
-   5. Scroll To Top
-   6. Tooltip
-   7. Ajaxchimp for Subscribe Form
-   8. Portfolio Filtering
-   9. Magnific Popup
-  10. Testimonial Carousel/Slider
-  11. Statistics Counter
- 
-
-*/
 
 
 (function ($) {
