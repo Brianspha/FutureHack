@@ -1,0 +1,91 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "geth-js",
+        "scope": null,
+        "escapedName": "geth-js",
+        "name": "geth-js",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\SUPERMAN\\Desktop\\Ethereum"
+    ]
+  ],
+  "_from": "geth-js@latest",
+  "_id": "geth-js@0.0.9",
+  "_inCache": true,
+  "_location": "/geth-js",
+  "_nodeVersion": "6.10.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/geth-js-0.0.9.tgz_1497637267906_0.17036891914904118"
+  },
+  "_npmUser": {
+    "name": "kidwai",
+    "email": "akidwaimohammad@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "geth-js",
+    "scope": null,
+    "escapedName": "geth-js",
+    "name": "geth-js",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/geth-js/-/geth-js-0.0.9.tgz",
+  "_shasum": "ed135562e6c1ec703e76ae89c999bc8a7d570d69",
+  "_shrinkwrap": null,
+  "_spec": "geth-js",
+  "_where": "C:\\Users\\SUPERMAN\\Desktop\\Ethereum",
+  "author": {
+    "name": "Mohammad Kidwai"
+  },
+  "bugs": {
+    "url": "https://github.com/kidwai/geth-js/issues"
+  },
+  "dependencies": {
+    "ps-node": "^0.1.6",
+    "web3-manager": "0.0.0"
+  },
+  "description": "Simple wrapper for geth",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "ed135562e6c1ec703e76ae89c999bc8a7d570d69",
+    "tarball": "https://registry.npmjs.org/geth-js/-/geth-js-0.0.9.tgz"
+  },
+  "gitHead": "24eaac22f7a620176f7a6913408ddc5ab6d32a77",
+  "homepage": "https://github.com/kidwai/geth-js#readme",
+  "keywords": [
+    "geth",
+    "ethereum",
+    "simple"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "kidwai",
+      "email": "akidwaimohammad@gmail.com"
+    }
+  ],
+  "name": "geth-js",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kidwai/geth-js.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.0.9"
+}

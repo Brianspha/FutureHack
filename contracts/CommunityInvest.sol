@@ -26,6 +26,7 @@ struct Investment
 }
 struct Employee
 {
+    address ID;
     string Name;
     string Surname;
     string Cellphone;
@@ -46,6 +47,7 @@ struct Proposal
    uint ROI;
    uint EmployeePledge;
    bool Exists;
+   address Owner;
    mapping (address=> User) UsersWhoHaveInvested;
    address [] InvestorsAddresses;
 }
@@ -73,6 +75,16 @@ function GetUser(address add) returns (string ,string ,string ,string ,string )
     else return ("User does not Exist","","","","");
     
 }
+function AddNewProposal(string Name,string descrip,uint amntseek,uint roi,uint pledge,address owner) returns (string)
+{
+    address [] memory InvAdd = new address[](0); 
+    var prop = Proposal(Name,descrip,amntseek,0,roi,pledge,true,owner,InvAdd);
+    SubmitedByPeople[owner]=prop;
+    ProposalAddresses.push(owner);
+    Users[owner].MyProposals[owner]=prop;
+     Users[owner].ProposalAddresses.push(owner);
+     return "Added Proposal Successfully";
+}
 function GetUserInvesments(address add) returns(uint[],uint [])
 {
     if(Users[add].Exists)
@@ -91,27 +103,37 @@ function GetUserInvesments(address add) returns(uint[],uint [])
     }
     return (amounts,Rois);
 }
-function GetUserProposals(address add) returns(string [],string[],uint[])
+function InvestInBusiness(address Businessadd,address investor,uint amount) returns (string)
 {
-    if(Users[add].Exists)
+    if(SubmitedByPeople[Businessadd].Exists && Users[investor].UserID != investor)
     {
-        var length = Users[add].ProposalAddresses.length;
-        string [] memory names = new string[](length);
-        string [] memory Descriptions = new string[](length);
-        uint [] memory Raised = new uint[](length);
-        for(uint i = 0; i < length;i++)
-        {
-            var addresss =Users[add].ProposalAddresses[i];
-            var name =Users[add].MyProposals;
-            var descript = Users[add].MyProposals;
-            var raised = Users[add].MyProposals;
-            names[i]=name[addresss].NameOfBusiness;
-            Descriptions[i] = descript[addresss].Description;
-            Raised[i] =raised[addresss].AmountRaised;
-           
-        }
+        SubmitedByPeople[Businessadd].AmountRaised+=amount;
+        SubmitedByPeople[Businessadd].InvestorsAddresses.push(investor);
+        SubmitedByPeople[Businessadd].UsersWhoHaveInvested[investor]=Users[investor];
+        Users[investor].MyInvestments[investor] = Investment(Businessadd,amount,SubmitedByPeople[Businessadd].ROI,true);
+        Users[investor].InvestmentAddresses.push(Businessadd);
+        return "Successfully Invested in business";
     }
-    return (names,Descriptions,Raised);
+    else return "Cant Invest in Own Business";
 }
+function EmployeeSignUp(address add,string name,string sname,string cell,string tel,string mail,string ocupationseeking,string Descrip) returns (string)
+{
+    var emp =Employee(add,name,sname,cell,tel,mail,ocupationseeking,Descrip,0,true,false);
+    if(!PeopleToEmploy[add].Exists){
+    PeopleToEmploy[add]=emp;
+    PeopleAddresses.push(add);
+    return "Added User Succesfully";
+    }
+    else return "User Already Exist";
+}
+
+function EmployIndvidual(address Employeeadd,address EmployerAdd) returns (string Name)
+{
+    Name = PeopleToEmploy[Employeeadd].Name;
+    PeopleToEmploy[Employeeadd].Employer =EmployerAdd;
+    PeopleToEmploy[Employeeadd].Employed = true;
+    return Name;
+}
+
 
 }
