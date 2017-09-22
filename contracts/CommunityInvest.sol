@@ -58,6 +58,8 @@ mapping (address=>Employee) PeopleToEmploy;
 address []  PeopleAddresses;
 mapping (address => Proposal) SubmitedByPeople;
 address []  ProposalAddresses;
+uint test;
+bool test2;
 function AddUser(string n,string s, string c,string t,string em,string add,address UserId) returns (string)
 {
     address [] memory InvAdd = new address[](0); 
