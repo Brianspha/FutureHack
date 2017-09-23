@@ -6,6 +6,7 @@
   "main": "./index.js",
   "directories": {
     "lib": "./lib"
+
   },
   "dependencies": {
     "bignumber.js": "git+https://github.com/frozeman/bignumber.js-nolookahead.git",
@@ -84,6 +85,8 @@
       "url": "https://github.com/obscuren"
     }
   ],
-
+ "engines": {
+    "node": "4.1.1"
+  },
   "license": "LGPL-3.0"
 }
