@@ -27,8 +27,6 @@
             $('.preloader').delay(5000).fadeOut('slow');
         });
 		
-		}
-		
        /* Smooth Scroll */
 
         $('a.smoth-scroll').on("click", function (e) {
