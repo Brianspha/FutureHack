@@ -4,8 +4,6 @@
 (function ($) {
   var loaded =false;
     'use strict';
-     $( "#snackbar" ).show();
-  document.getElementById('snackbar').InnerHtml ="Please wait for Contract to be Mined before signing up";
     jQuery(document).ready(function () {
 
    $( "#snackbar" ).hide();
