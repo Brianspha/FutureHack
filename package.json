@@ -39,7 +39,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
-  	"start": "node lib/server.js",
+  	"start": "./lib/server.js",
     "build": "gulp",
     "watch": "gulp watch",
     "lint": "jshint *.js lib",
