@@ -177,7 +177,6 @@ function myFunction() {
    }, function (e, contract){
     console.log(e, contract);
     if (typeof contract.address !== 'undefined') {
-      loaded=true;
        $( "#snackbar" ).show();
         document.getElementById('snackbar').InnerHtml ="Contract mined! You can now use the website ";
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
