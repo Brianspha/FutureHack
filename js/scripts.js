@@ -164,19 +164,14 @@
               
 		   
             });
-
-   })(jQuery);
-
 function myFunction() {
     var x = document.getElementById("snackbar")
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
-   /* Smart Contract Deployment */
-$( document ).ready(function() {
-    console.log( "ready!" );
-$( "#snackbar" ).hide();
 
+   /* Smart Contract Deployment */
+$( "#snackbar" ).hide();
 var browser_communityinvestment_sol_communityinvestContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"Employeeadd","type":"address"},{"name":"EmployerAdd","type":"address"}],"name":"EmployIndvidual","outputs":[{"name":"Name","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"},{"name":"name","type":"string"},{"name":"sname","type":"string"},{"name":"cell","type":"string"},{"name":"tel","type":"string"},{"name":"mail","type":"string"},{"name":"ocupationseeking","type":"string"},{"name":"Descrip","type":"string"}],"name":"EmployeeSignUp","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"}],"name":"GetUser","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"n","type":"string"},{"name":"s","type":"string"},{"name":"c","type":"string"},{"name":"t","type":"string"},{"name":"em","type":"string"},{"name":"add","type":"string"},{"name":"UserId","type":"address"}],"name":"AddUser","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Name","type":"string"},{"name":"descrip","type":"string"},{"name":"amntseek","type":"uint256"},{"name":"roi","type":"uint256"},{"name":"pledge","type":"uint256"},{"name":"owner","type":"address"}],"name":"AddNewProposal","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Businessadd","type":"address"},{"name":"investor","type":"address"},{"name":"amount","type":"uint256"}],"name":"InvestInBusiness","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"}],"name":"GetUserInvesments","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
 var communityinvest = browser_communityinvestment_sol_communityinvestContract.new(
    {
@@ -189,9 +184,6 @@ var communityinvest = browser_communityinvestment_sol_communityinvestContract.ne
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
     }
  })
- 
-})
-
 function AddNewUser()
 {
  var name = document.getElementById('firstname').value;
@@ -207,10 +199,18 @@ function AddNewUser()
   });
 $( "#snackbar" ).hide();
 }
-  
-
-
 
 
 
 /* End Smart Contract Deployment */
+  
+
+   })(jQuery);
+
+
+
+
+
+
+
+
