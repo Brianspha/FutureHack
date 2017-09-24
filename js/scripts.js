@@ -6,7 +6,17 @@
     jQuery(document).ready(function () {
     var loaded =false;
    $( ".snackbar" ).hide();
-
+       /*Preload Idea */
+       var line1= "<div class='columns'>";
+var line2 ="<ul class='price'>";
+var name="<li class='header'>";
+var descrip= "</li><li class='grey'>";
+var Seek="</li><li>"
+var Raised="</li><li id='raised'>";
+var line3 = " </li></ul></div>";
+var line4 = "<li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li>";
+document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energy Drink"+descrip+"Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. "+Seek+"20000"+Raised +"1234" +line3+line4;
+/*End Preloaded Ideas */
         $(window).load(function () {
             $('.preloader').delay(5000).fadeOut('slow');
         });
@@ -168,6 +178,8 @@ function myFunction() {
 
    /* Smart Contract Deployment */
        /* Preloader */
+    var ContractCompiled = false;
+    localStorage.setItem("Compiled", ContractCompiled);
     var browser_communityinvestment_sol_communityinvestContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"Employeeadd","type":"address"},{"name":"EmployerAdd","type":"address"}],"name":"EmployIndvidual","outputs":[{"name":"Name","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"},{"name":"name","type":"string"},{"name":"sname","type":"string"},{"name":"cell","type":"string"},{"name":"tel","type":"string"},{"name":"mail","type":"string"},{"name":"ocupationseeking","type":"string"},{"name":"Descrip","type":"string"}],"name":"EmployeeSignUp","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"}],"name":"GetUser","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"n","type":"string"},{"name":"s","type":"string"},{"name":"c","type":"string"},{"name":"t","type":"string"},{"name":"em","type":"string"},{"name":"add","type":"string"},{"name":"UserId","type":"address"}],"name":"AddUser","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Name","type":"string"},{"name":"descrip","type":"string"},{"name":"amntseek","type":"uint256"},{"name":"roi","type":"uint256"},{"name":"pledge","type":"uint256"},{"name":"owner","type":"address"}],"name":"AddNewProposal","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Businessadd","type":"address"},{"name":"investor","type":"address"},{"name":"amount","type":"uint256"}],"name":"InvestInBusiness","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"}],"name":"GetUserInvesments","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
     var communityinvest = browser_communityinvestment_sol_communityinvestContract.new(
    {
@@ -177,6 +189,8 @@ function myFunction() {
    }, function (e, contract){
     console.log(e, contract);
     if (typeof contract.address !== 'undefined') {
+       ContractCompiled =true;
+        localStorage.setItem("Compiled", ContractCompiled);
        $( "#snackbar" ).show();
         document.getElementById('snackbar').InnerHtml ="Contract mined! You can now use the website ";
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
@@ -191,15 +205,88 @@ function AddNewUser()
  var Email = document.getElementById('Address').value;
  document.getElementById('UserAddress').InnerHtml =web3.eth.accounts[0];
  var userAdd = document.getElementById('UserAddress').value;
+ if(localStorage.getItem("Compiled")){
  communityinvest.AddNewUser(name,sname,Cellphone,Telephone,Email,userAdd,{from: userAdd}, function() {
   $( ".snackbar" ).show();
   document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
   });
-$( ".snackbar" ).hide();
+}
+else{
+
+  if (typeof(Storage) !== "undefined") {
+    // Store
+    localStorage.setItem("firstname",name);
+    localStorage.setItem("lastname",Sname);
+    localStorage.setItem("Telephone",Telephone);
+    localStorage.setItem("Cellphone",Cellphone);
+    localStorage.setItem("Email",Email);
+     $(".snackbar" ).show();
+    document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
+
+    } else {
+    $(".snackbar" ).show();
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+  }
+  $(".article1" ).hide();
 }
 
+function AddProp(){
+  var name = document.getElementById('Iname').value;
+  var Descrip = document.getElementById('Description').value;
+  var Seek = document.getElementById('Amount').value;
+  var Email = document.getElementById('EmailAdd').value;
+  var Roi = document.getElementById('Roi').value;
+  var userAdd = document.getElementById('UserAddress').value;
+if(localStorage.getItem("Compiled")){
+ communityinvest.AddNewProposal(name,descrip,Seek,Email,Roi,userAdd,{from: userAdd}, function() {
+  $( ".snackbar" ).show();
+  document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
+  });
+}
+else{
+  if(typeof(Storage) !== "undefined"){
+  localStorage.setItem("IdeaName", name);
+  localStorage.setItem("Description", descrip);
+  localStorage.setItem("AmountSeeking", Seek);
+  localStorage.setItem("ROI", Roi);
+  }
+  else{
+$(".snackbar" ).show();
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+  }
+   $(".snackbar" ).show();
+    document.getElementById('snackbar').InnerHtml ="Business Idea Submitted to the blockchain";
+ }
+ UpdateUserProposal(Name,Descrip,Seeks,Roi);
+  UpdateMarketProposals(Name,Descrip,Seeks,Roi);
+}
+function UpdateUserProposal(name,Descrip,Seek,Roi){
+var line1= "<div class='columns'>";
+var line2 ="<ul class='price'>";
+var name="<li class='header'>";
+var descrip= "</li><li class='grey'>";
+var Seek="</li><li>"
+var Raised="</li><li>";
+var line3 = " </li></ul></div>";
+document.getElementById('MyProps').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3;
+}
 
-
+function UpdateMarketProposals(name,Descrip,Seek,Roi){
+var line1= "<div class='columns'>";
+var line2 ="<ul class='price'>";
+var name="<li class='header'>";
+var descrip= "</li><li class='grey'>";
+var Seek="</li><li>"
+var Raised="</li><li id='raised'>";
+var line3 = " </li>";
+var line4 = "</ul></div><li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li>";
+document.getElementById('props').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3+line4;
+}
+function InvestInBusiness(item)
+{
+   return;
+}
 /* End Smart Contract Deployment */
 
    })(jQuery);
