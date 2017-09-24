@@ -2,9 +2,9 @@
 
 
 (function ($) {
+  var loaded =false;
     'use strict';
     jQuery(document).ready(function () {
-  var loaded =false;
 
    $( ".snackbar" ).hide();
        /* Preloader */
@@ -18,7 +18,7 @@
     console.log(e, contract);
     if (typeof contract.address !== 'undefined') {
       loaded=true;
-       $( ".snackbar" ).show();
+       $( "#snackbar" ).show();
         document.getElementById('snackbar').InnerHtml ="Contract mined! You can now use the website ";
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
     }
