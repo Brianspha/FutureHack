@@ -207,7 +207,7 @@ function AddNewUser()
  document.getElementById('UserAddress').InnerHtml =web3.eth.accounts[0];
  var userAdd = document.getElementById('UserAddress').value;
  if(localStorage.getItem("Compiled")){
- instance.AddNewUser(name,sname,Cellphone,Telephone,Email,userAdd,{from: userAdd}, function() {
+ instance.AddUser(name,sname,Cellphone,Telephone,Email,userAdd,{from: userAdd}, function() {
   $( ".snackbar" ).show();
   document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
   });
@@ -281,7 +281,7 @@ var descrip= "</li><li class='grey'>";
 var Seek="</li><li>"
 var Raised="</li><li id='raised'>";
 var line3 = " </li>";
-var line4 = "</ul></div><li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li></ul></div>";
+var line4 = "<li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li></ul></div>";
 document.getElementById('props').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3+line4;
 }
 function InvestInBusiness(item)
