@@ -13,8 +13,8 @@ var name="<li class='header'>";
 var descrip= "</li><li class='grey'>";
 var Seek="</li><li>"
 var Raised="</li><li id='raised'>";
-var line3 = " </li></ul></div>";
-var line4 = "<li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li>";
+var line3 = " </li>";
+var line4 = "<li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li></ul></div>";
 document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energy Drink"+descrip+"Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. "+Seek+"20000"+Raised +"1234" +line3+line4;
 /*End Preloaded Ideas */
         $(window).load(function () {
@@ -196,6 +196,7 @@ function myFunction() {
          console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
     }
  })
+var instance = browser_communityinvestment_sol_communityinvestContract.at(communityinvest.address)
 function AddNewUser()
 {
  var name = document.getElementById('firstname').value;
@@ -206,7 +207,7 @@ function AddNewUser()
  document.getElementById('UserAddress').InnerHtml =web3.eth.accounts[0];
  var userAdd = document.getElementById('UserAddress').value;
  if(localStorage.getItem("Compiled")){
- communityinvest.AddNewUser(name,sname,Cellphone,Telephone,Email,userAdd,{from: userAdd}, function() {
+ instance.AddNewUser(name,sname,Cellphone,Telephone,Email,userAdd,{from: userAdd}, function() {
   $( ".snackbar" ).show();
   document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
   });
@@ -239,7 +240,7 @@ function AddProp(){
   var Roi = document.getElementById('Roi').value;
   var userAdd = document.getElementById('UserAddress').value;
 if(localStorage.getItem("Compiled")){
- communityinvest.AddNewProposal(name,descrip,Seek,Email,Roi,userAdd,{from: userAdd}, function() {
+ instance.AddNewProposal(name,descrip,Seek,Email,Roi,userAdd,{from: userAdd}, function() {
   $( ".snackbar" ).show();
   document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
   });
@@ -280,7 +281,7 @@ var descrip= "</li><li class='grey'>";
 var Seek="</li><li>"
 var Raised="</li><li id='raised'>";
 var line3 = " </li>";
-var line4 = "</ul></div><li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li>";
+var line4 = "</ul></div><li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li></ul></div>";
 document.getElementById('props').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3+line4;
 }
 function InvestInBusiness(item)
