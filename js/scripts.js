@@ -5,7 +5,6 @@
     'use strict';
     jQuery(document).ready(function () {
     var loaded =false;
-    
    $( ".snackbar" ).hide();
        /*Preload Idea */
        var line1= "<div class='columns'>";
@@ -21,7 +20,7 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
         $(window).load(function () {
             $('.preloader').delay(5000).fadeOut('slow');
         });
-		
+    
        /* Smooth Scroll */
 
         $('a.smoth-scroll').on("click", function (e) {
@@ -31,12 +30,12 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
             }, 1000);
             e.preventDefault();
         });
-		
+    
 
 
        
        /* Scroll Naviagation Background Change with Sticky Navigation */
-		 
+     
         $(window).on('scroll', function () {
             if ($(window).scrollTop() > 100) {
                 $('.header-top-area').addClass('navigation-background');
@@ -44,12 +43,12 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
                 $('.header-top-area').removeClass('navigation-background');
             }
         });
-		
-		
-		
-		
+    
+    
+    
+    
        /* Mobile Navigation Hide or Collapse on Click */
-		
+    
         $(document).on('click', '.navbar-collapse.in', function (e) {
             if ($(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle') {
                 $(this).collapse('hide');
@@ -59,27 +58,27 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
             target: '.navbar-collapse',
             offset: 195
         
-		 });
-		 
-		
-		
-		
+     });
+     
+    
+    
+    
         /* Scroll To Top */
-		
+    
         $(window).scroll(function(){
         if ($(this).scrollTop() >= 500) {
             $('.scroll-to-top').fadeIn();
          } else {
             $('.scroll-to-top').fadeOut();
          }
-	   });
-	
-	
-	    $('.scroll-to-top').click(function(){
-		  $('html, body').animate({scrollTop : 0},800);
-		  return false;
-	    });
-		
+     });
+  
+  
+      $('.scroll-to-top').click(function(){
+      $('html, body').animate({scrollTop : 0},800);
+      return false;
+      });
+    
 
         
         /* Tooltip */
@@ -87,16 +86,16 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
          $(function () {
            $('[data-toggle="tooltip"]').tooltip()
            })
-		   
-		 
+       
+     
         
         /* Ajaxchimp for Subscribe Form */
-		
+    
          $('#mc-form').ajaxChimp();
-		   
-		   
+       
+       
   
-		
+    
         /* Portfolio Filtering */
 
         $('.portfolio-inner').mixItUp();
@@ -107,14 +106,14 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
 
         $('.portfolio-popup').magnificPopup({
             type: 'image',
-			
+      
             gallery: { enabled: true },
-			zoom: { enabled: true,
-			        duration: 500
-					
+      zoom: { enabled: true,
+              duration: 500
+          
           },
-		  
-		  
+      
+      
          image:{
                markup: '<div class="mfp-figure portfolio-pop-up">'+
                '<div class="mfp-close"></div>'+
@@ -129,11 +128,11 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
                 return item.el.attr('title');
               }
             }
-		  
-		  
+      
+      
           });
-	   
-		 
+     
+     
         /* Testimonial Carousel/Slider */
 
         $(".testimonial-carousel-list").owlCarousel({
@@ -151,12 +150,12 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
             pagination: false,
             transitionStyle : "fadeUp"
         });
-		
-		
-		
-		
+    
+    
+    
+    
         /* Statistics Counter */
-		
+    
         $('.statistics').appear(function() {
            var counter = $(this).find('.statistics-count');
            var toCount = counter.data('count');
@@ -169,7 +168,7 @@ document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energ
            })
            });
               
-		   
+       
             });
 function myFunction() {
     var x = document.getElementById("snackbar")
@@ -178,9 +177,10 @@ function myFunction() {
 }
 
    /* Smart Contract Deployment */
-       /* Preloader */
+    var Web3 = require('web3');
     var ContractCompiled = false;
     localStorage.setItem("Compiled", ContractCompiled);
+    var web3 =  new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
     var browser_communityinvestment_sol_communityinvestContract = web3.eth.contract([{"constant":false,"inputs":[{"name":"Employeeadd","type":"address"},{"name":"EmployerAdd","type":"address"}],"name":"EmployIndvidual","outputs":[{"name":"Name","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"},{"name":"name","type":"string"},{"name":"sname","type":"string"},{"name":"cell","type":"string"},{"name":"tel","type":"string"},{"name":"mail","type":"string"},{"name":"ocupationseeking","type":"string"},{"name":"Descrip","type":"string"}],"name":"EmployeeSignUp","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"}],"name":"GetUser","outputs":[{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"},{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"n","type":"string"},{"name":"s","type":"string"},{"name":"c","type":"string"},{"name":"t","type":"string"},{"name":"em","type":"string"},{"name":"add","type":"string"},{"name":"UserId","type":"address"}],"name":"AddUser","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Name","type":"string"},{"name":"descrip","type":"string"},{"name":"amntseek","type":"uint256"},{"name":"roi","type":"uint256"},{"name":"pledge","type":"uint256"},{"name":"owner","type":"address"}],"name":"AddNewProposal","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Businessadd","type":"address"},{"name":"investor","type":"address"},{"name":"amount","type":"uint256"}],"name":"InvestInBusiness","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"add","type":"address"}],"name":"GetUserInvesments","outputs":[{"name":"","type":"uint256[]"},{"name":"","type":"uint256[]"}],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
     var communityinvest = browser_communityinvestment_sol_communityinvestContract.new(
    {
@@ -205,7 +205,7 @@ function AddNewUser()
  var Telephone = document.getElementById('Telephone').value;
  var Cellphone = document.getElementById('Cellphone').value;
  var Email = document.getElementById('Address').value;
- document.getElementById('UserAddress').InnerHtml =web3.eth.accounts[0];
+ document.getElementById('UserAddress').InnerHtml =Web3.eth.accounts[0];
  var userAdd = document.getElementById('UserAddress').value;
  if(localStorage.getItem("Compiled")){
  instance.AddUser(name,sname,Cellphone,Telephone,Email,userAdd,{from: userAdd}, function() {
