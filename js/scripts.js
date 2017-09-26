@@ -5,6 +5,7 @@
     'use strict';
     jQuery(document).ready(function () {
     var loaded =false;
+    
    $( ".snackbar" ).hide();
        /*Preload Idea */
        var line1= "<div class='columns'>";
@@ -14,7 +15,7 @@ var descrip= "</li><li class='grey'>";
 var Seek="</li><li>"
 var Raised="</li><li id='raised'>";
 var line3 = " </li>";
-var line4 = "<li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li></ul></div>";
+var line4 = "<li class='grey'><button href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</button></li></ul></div>";
 document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energy Drink"+descrip+"Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. "+Seek+"20000"+Raised +"1234" +line3+line4;
 /*End Preloaded Ideas */
         $(window).load(function () {
@@ -281,7 +282,7 @@ var descrip= "</li><li class='grey'>";
 var Seek="</li><li>"
 var Raised="</li><li id='raised'>";
 var line3 = " </li>";
-var line4 = "<li class='grey'><a href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</a></li></ul></div>";
+var line4 = "<li class='grey'><button href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</button></li></ul></div>";
 document.getElementById('props').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3+line4;
 }
 function InvestInBusiness(item)
