@@ -10,8 +10,8 @@
     var line2 ="<ul class='price'>";
     var name="<li class='header'>";
     var descrip= "</li><li class='grey'>";
-    var Seek="</li><li>"
-    var Raised="</li><li id='raised'>";
+    var Seek="</li><li> <p><b>R</b><p>"
+    var Raised="</li><li id='raised'><p><b>R</b>";
     var line3 = " </li>";
     var line4 = "<li class='grey'><button href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</button></li></ul></div>";
     document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energy Drink"+descrip+"Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. "+Seek+"20000"+Raised +"1234" +line3+line4;
@@ -202,10 +202,7 @@ function myFunction() {
     }
 });
 var instance = contract.at(contractInstance.address);
-var test =instance.AddUser("Spha","Mjoli","031","073","g14m1190","36 oribi" ,web3.eth.accounts[0], function() {
-  });
-var test2 =instance.GetUser(web3.eth.accounts[0],function(){});
-var test3 ="";
+instance.AddNewProposal("Siyaphuza Energy Drink","Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. ","20000","12","15",web3.eth.accounts[9],{from:web3.eth.accounts[9]},function(){});
 function AddNewUser()
 {
  var name = document.getElementById('firstname').value;
@@ -215,7 +212,10 @@ function AddNewUser()
  var Email = document.getElementById('Email').value;
  var HomeAddress = document.getElementById('Address');
  var userAdd =  web3.eth.accounts[0];
- instance.call().AddUser(name,Sname,Cellphone,Telephone,Email,HomeAddress,userAdd,{from: web3.eth.accounts[0]}, function() {
+ instance.GetUser(userAdd,function(){
+
+ });
+ instance.AddUser(name,Sname,Cellphone,Telephone,Email,HomeAddress,userAdd, function() {
   
   });
 document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
