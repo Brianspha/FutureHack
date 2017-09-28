@@ -211,12 +211,9 @@ function AddNewUser()
  var Email = document.getElementById('Email').value;
  var HomeAddress = document.getElementById('Address');
  var userAdd =  web3.eth.accounts[0];
- instance.GetUser(userAdd,function(){
+ instance.AddUser.call(name,Sname,Cellphone,Telephone,Email,HomeAddress,userAdd,function(){
 
  });
- instance.AddUser(name,Sname,Cellphone,Telephone,Email,HomeAddress,userAdd, function() {
-  
-  });
 document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
 }
 
@@ -227,7 +224,7 @@ function AddProp(){
   var Email = document.getElementById('EmailAdd').value;
   var Roi = document.getElementById('ROI').value;
  var userAdd =  web3.eth.accounts[0];
- instance.AddNewProposal(name,Descrip,Seek,Email,Roi,userAdd,{from: web3.eth.accounts[0]}, function() {
+ instance.AddNewProposal.call(name,Descrip,Seek,Email,Roi,userAdd,{from: web3.eth.accounts[0]}, function() {
   document.getElementById('snackbar').InnerHtml ="New Account Created Succesfully";
   });
 
