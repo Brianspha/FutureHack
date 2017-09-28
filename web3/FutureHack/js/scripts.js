@@ -10,8 +10,8 @@
     var line2 ="<ul class='price'>";
     var name="<li class='header'>";
     var descrip= "</li><li class='grey'>";
-    var Seek="</li><li> <p><b>R</b><p>"
-    var Raised="</li><li id='raised'><p><b>R</b>";
+    var Seek="</li><li> <p>Amount Seeking<br><b>R</b></p>";
+    var Raised="</li><li id='raised'><p>Amount raised\n <br><b>\nR</b></p>";
     var line3 = " </li>";
     var line4 = "<li class='grey'><button href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</button></li></ul></div>";
     document.getElementById('props').innerHTML +=line1 +line2+name +"Siyaphuza Energy Drink"+descrip+"Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. "+Seek+"20000"+Raised +"1234" +line3+line4;
@@ -202,7 +202,6 @@ function myFunction() {
     }
 });
 var instance = contract.at(contractInstance.address);
-instance.AddNewProposal("Siyaphuza Energy Drink","Struggling to stay awake or run out of energy while studying?\n Siyaphuza Energy drink is the answer an energy drink that will help you get through those late nights. ","20000","12","15",web3.eth.accounts[9],{from:web3.eth.accounts[9]},function(){});
 function AddNewUser()
 {
  var name = document.getElementById('firstname').value;
@@ -240,8 +239,8 @@ var line1= "<div class='columns'>";
 var line2 ="<ul class='price'>";
 var name="<li class='header'>";
 var descrip= "</li><li class='grey'>";
-var Seek="</li><li>"
-var Raised="</li><li>";
+var Seek="</li><li> <p>Amount Seeking<br><b>R</b></p>";
+var Raised="</li><li id='raised'><p>Amount raised\n <br><b>\nR</b></p>";
 var line3 = " </li></ul></div>";
 document.getElementById('MyProps').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3;
 }
@@ -251,8 +250,8 @@ var line1= "<div class='columns'>";
 var line2 ="<ul class='price'>";
 var name="<li class='header'>";
 var descrip= "</li><li class='grey'>";
-var Seek="</li><li>"
-var Raised="</li><li id='raised'>";
+var Seek="</li><li> <p>Amount Seeking<br><b>R</b></p>";
+var Raised="</li><li id='raised'><p>Amount raised\n <br><b>\nR</b></p>";
 var line3 = " </li>";
 var line4 = "<li class='grey'><button href='#' onclick ='InvestInBusiness('document.getElementById(raised)')'class='button'>Invest</button></li></ul></div>";
 document.getElementById('props').innerHTML +=line1 +line2+name +Name+descrip+Descrip+Seek+Seeks+Raised +"0" +line3+line4;
