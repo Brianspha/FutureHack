@@ -311,6 +311,7 @@ fieldset {
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
+    background-color: #4c9cef;
 }
 
 .button:after {
@@ -1902,7 +1903,7 @@ ul.portfolio li.active {
     min-width: 250px;
     margin-left: -125px;
     background-color: #4c9cef;
-    color: #fff;
+    color: white;
     text-align: center;
     border-radius: 2px;
     padding: 16px;
@@ -1915,6 +1916,7 @@ ul.portfolio li.active {
 
 #snackbar.show {
     visibility: visible;
+        color: white;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -1940,3 +1942,12 @@ ul.portfolio li.active {
 }
 
 /*End Snack Bar */
+
+/* Cusotm Button Start */
+
+.customBut
+{
+    background-color: #4c9cef;
+}
+/*End Custom Button */
+

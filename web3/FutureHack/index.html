@@ -28,6 +28,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="../dist/web3.js"></script>
+
     <title>Community Investment</title>
     
     <!-- Favicon -->
@@ -75,7 +76,7 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="logo">
-                            <a href="index-2.html">Community Investment</a>
+                            <a href="#a">Community Investment</a>
                         </div>
                     </div>
                     <div class="col-sm-9">
@@ -155,7 +156,9 @@
                         Home Address:<br>
                         <input type="text" id="Address">
                         <br><br>
-                        <div id="formBut" ><input type="submit" onclick="AddNewUser()" value="Submit" class="formBut"/></div>
+                        <div id="formBut"><button type="button" class="btn btn-default" data-toggle="modal" data-target="#termsModal">Agree with the terms and conditions </button> </div>
+                        <br><br>
+                        <div id="formBut" ><input type="submit" class="btn btn-info btn-lg" onclick="AddNewUser()" value="Submit" class="formBut"/></div>
                     </fieldset>
                 </form>
             </article>
@@ -199,7 +202,7 @@
                               Projected Return on Investment:<br>
                               <input type="text" id="ROI">
                               <br><br>
-                              <div id="formBut" ><input class="formBut" type="submit" onclick="AddProp() " value="Submit"></div>
+                              <div id="formBut" ><input class="btn btn-info btn-lg" type="submit" onclick="AddProp() " value="Submit"></div>
                           </fieldset>
                       </form>
         </article>
@@ -350,7 +353,7 @@
                                 </div>
                             </div>
                             <div class="team-title">
-                                <h5>Gertrude Gert</h5>
+                                <h5>Khalisi Daenerys Targaryen</h5>
                                 <span>Developer</span>
                             </div>
                         </div>
@@ -457,7 +460,59 @@
       <!-- Testimonial End -->
 
         
-        
+        <!-- Modal Pop-Up Start-->
+        <div class="container">
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+       <form>
+  <div class="form-group">
+    <label for="email">Amount:</label>
+    <input type="number" class="form-control" id="number" value="0">
+  </div>
+  <div id="formBut"><button type="submit"  class="button">Invest</button></div>
+</form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+        <!--  Modal Pop-Up End -->
+
+        <!-- Terms and Conditions Modal -->
+<div id="formBut">
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="Terms and conditions" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Terms and conditions</h3>
+            </div>
+            <div class="modal-body">
+                <p>By using Community Investment you agree that you will be employing individuals from your community and no where else serious consequences could be faced these terms and conditons are</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="agreeButton" data-dismiss="modal">Agree</button>
+                <button type="button" class="btn btn-default" id="disagreeButton" data-dismiss="modal">Disagree</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>   
+     <!-- End Terms and Conditions Modal -->
+
+
     <!-- Footer Start -->
     <footer class="footer-section">
         <div class="container">
@@ -489,7 +544,6 @@
     <!-- Back to Top Start -->
     <a href="#" class="scroll-to-top"><i class="icon-arrow-up-circle"></i></a>
     <!-- Back to Top End -->
-    
 
 
     <!-- All Javascript Plugins  -->
@@ -499,6 +553,6 @@
     <!-- Main Javascript File  -->
     <script type="text/javascript" src="js/scripts.js"></script>
   
-  <div id="snackbar"></div>
+  <div id="snackbar"><p id="snackbar">Success!</p></div>
   </body>
  </html>
